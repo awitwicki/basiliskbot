@@ -22,20 +22,22 @@
       let response = getRandomResponse()
       let! message = context.Update.Message
       
-      response
-      |> sendMessage message.Chat.Id
+      Some message.MessageId
+      |> sendMessageReply message.Chat.Id response
       |> api context.Config
       |> Async.Ignore
       |> Async.Start
-    } |> ignore
-
+      }
+      |> ignore
+                  
   /// Handler for "/start" command
   let onStart context =
     maybe {
       let! message = context.Update.Message
-      
-      "Добавь меня в чат и я буду бороться с войсами"
-      |> sendMessage message.Chat.Id
+      let response = "Добавь меня в чат и я буду бороться с войсами"
+
+      Some message.MessageId
+      |> sendMessageReply message.Chat.Id response
       |> api context.Config
       |> Async.Ignore
       |> Async.Start
