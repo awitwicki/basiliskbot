@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31727.386
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31808.319
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "basiliskbot", "basiliskbot\basiliskbot.fsproj", "{49740E83-7F0F-4ED0-926A-B44B7AFF689F}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "basiliskbot", "basiliskbot\basiliskbot.fsproj", "{49740E83-7F0F-4ED0-926A-B44B7AFF689F}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{69C2D76A-4F58-4C88-825F-7402C863D100}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{49740E83-7F0F-4ED0-926A-B44B7AFF689F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49740E83-7F0F-4ED0-926A-B44B7AFF689F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49740E83-7F0F-4ED0-926A-B44B7AFF689F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69C2D76A-4F58-4C88-825F-7402C863D100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69C2D76A-4F58-4C88-825F-7402C863D100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69C2D76A-4F58-4C88-825F-7402C863D100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69C2D76A-4F58-4C88-825F-7402C863D100}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

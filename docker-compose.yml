@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  basiliskbot:
+    image: ${DOCKER_REGISTRY-}basiliskbot
+    build:
+      context: .
+      dockerfile: basiliskbot/Dockerfile
+    container_name: basiliskbot-container
+    restart: always
+    env_file:
+      - .env
