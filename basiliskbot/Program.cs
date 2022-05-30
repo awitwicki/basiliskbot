@@ -34,6 +34,13 @@ async Task HandleUpdateAsync(ITelegramBotClient bot, Update update, Cancellation
     Message message = update.Message!;
     Chat chat = message.Chat;
 
+    // Start command
+    if (message.Text == "/start")
+    {
+        await bot.SendTextMessageAsync(chat.Id, "Привіт, додай мене до свого чату і я буду хейтити войси.", replyToMessageId: message.MessageId);
+        return;
+    }
+
     // Ignore all except voice
     if (message.Voice == null)
     {
