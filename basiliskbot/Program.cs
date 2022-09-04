@@ -31,25 +31,32 @@ await Task.Delay(Timeout.Infinite);
 
 async Task HandleUpdateAsync(ITelegramBotClient bot, Update update, CancellationToken _)
 {
-    Message message = update.Message!;
-    Chat chat = message.Chat;
-
-    // Start command
-    if (message.Text == "/start")
+    try
     {
-        await bot.SendTextMessageAsync(chat.Id, "Привіт, додай мене до свого чату і я буду хейтити войси.", replyToMessageId: message.MessageId);
-        return;
-    }
+        Message message = update.Message!;
+        Chat chat = message.Chat;
 
-    // Ignore all except voice
-    if (message.Voice == null)
+        // Start command
+        if (message.Text == "/start")
+        {
+            await bot.SendTextMessageAsync(chat.Id, "Привіт, додай мене до свого чату і я буду хейтити войси.", replyToMessageId: message.MessageId);
+            return;
+        }
+
+        // Ignore all except voice
+        if (message.Voice == null)
+        {
+            return;
+        }
+
+        string phrase = phrases[random.Next(phrases.Length)];
+
+        await bot.SendTextMessageAsync(chat.Id, phrase, replyToMessageId: message.MessageId);
+    }
+    catch (Exception ex)
     {
-        return;
+        Console.WriteLine(ex);
     }
-
-    string phrase = phrases[random.Next(phrases.Length)];
-
-    await bot.SendTextMessageAsync(chat.Id, phrase, replyToMessageId: message.MessageId);
 }
 
 async Task HandleErrorAsync(ITelegramBotClient bot, Exception error, CancellationToken _) =>
